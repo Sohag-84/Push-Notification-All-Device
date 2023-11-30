@@ -10,7 +10,7 @@ class HttpServices {
     // send notification from one device to another
     NotificationServices().getToken().then((value) async {
       var data = {
-        "to": "/topics/allDevices",
+        "to": "/topics/all",
         //'to': value.toString(),
         'notification': {
           'title': title,

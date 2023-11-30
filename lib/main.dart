@@ -1,9 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/splash_screen.dart';
 
 import 'firebase_options.dart';
-import 'views/home_screen.dart';
+import 'views/notification_send_screen/send_notification_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }

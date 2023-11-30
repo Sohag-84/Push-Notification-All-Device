@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously, avoid_print
 
-import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -8,7 +7,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:untitled/views/message_screen.dart';
 
 class NotificationServices {
   FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
@@ -51,7 +49,7 @@ class NotificationServices {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
       onDidReceiveNotificationResponse: (payload) {
-        handleMessage(context: context, message: message);
+        // handleMessage(context: context, message: message);
       },
     );
   }
@@ -137,28 +135,28 @@ class NotificationServices {
     RemoteMessage? initialMessage =
         await FirebaseMessaging.instance.getInitialMessage();
     if (initialMessage != null) {
-      handleMessage(context: context, message: initialMessage);
+      //handleMessage(context: context, message: initialMessage);
     }
 
     ///when app is in background
     FirebaseMessaging.onMessageOpenedApp.listen((event) {
-      handleMessage(context: context, message: event);
+      //handleMessage(context: context, message: event);
     });
   }
 
   ///handle message
-  void handleMessage(
-      {required BuildContext context, required RemoteMessage message}) {
-    if (message.data['type'] == 'msg') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MessageScreen(
-            title: message.data['type'],
-            id: message.data['id'],
-          ),
-        ),
-      );
-    }
-  }
+  // void handleMessage(
+  //     {required BuildContext context, required RemoteMessage message}) {
+  //   if (message.data['type'] == 'msg') {
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => MessageScreen(
+  //           title: message.data['type'],
+  //           id: message.data['id'],
+  //         ),
+  //       ),
+  //     );
+  //   }
+  // }
 }
