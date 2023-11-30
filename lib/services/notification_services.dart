@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, avoid_print
 
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -66,6 +67,7 @@ class NotificationServices {
         print("=== === Notification send time: ${message.sentTime}");
         print("=== === Notification data type: ${message.data['type']}");
         print("=== === Notification data id: ${message.data['id']}");
+        print("======Notification data: ${message.data} =======");
       }
       if (Platform.isAndroid) {
         initLocalNotification(context: context, message: message);
