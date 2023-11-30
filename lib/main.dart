@@ -10,6 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await FirebaseMessaging.instance.subscribeToTopic('all');
   FirebaseMessaging.onBackgroundMessage(_firebaseBackgroundMessageHandler);
   runApp(const MyApp());
 }

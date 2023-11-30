@@ -26,7 +26,6 @@ class NotificationServices {
       provisional: true,
       sound: true,
     );
-
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       print("=== === User permission granted === ===");
     } else if (settings.authorizationStatus ==
